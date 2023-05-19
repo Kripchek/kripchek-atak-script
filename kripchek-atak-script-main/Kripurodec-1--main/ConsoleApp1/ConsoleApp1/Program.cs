@@ -57,6 +57,7 @@ namespace ConsoleApp1
                         Console.WriteLine("Здоровье Монстров");
                         Monsterhp -= toMdmg;
                         Console.WriteLine(Monsterhp);
+                        sumMDmg += toMdmg;
 
                 Console.WriteLine("__________________");
                         Console.WriteLine("Монстр вам нанес: " + toPdmg);
@@ -64,7 +65,7 @@ namespace ConsoleApp1
                         Console.WriteLine("Здоровье игрока");
                         Playerhp -= toPdmg;
                         Console.WriteLine(Playerhp);
-
+                        sumPDmg += toPdmg;
                         
                         break;
                     case 2:
@@ -84,12 +85,14 @@ namespace ConsoleApp1
                                 Console.WriteLine("Здоровье Монстров");
                                 Monsterhp -= 5;
                                 Console.WriteLine(Monsterhp);
+                                sumMDmg += 5;
                 Console.WriteLine("______");
                                 Console.WriteLine("Монстр вам нанес: " + toPdmg);
                 Console.WriteLine("______");
                                 Console.WriteLine("Здоровье игрока");
                                 Playerhp -= toPdmg;
                                 Console.WriteLine(Playerhp);
+                                sumPDmg += toPdmg;
                                 Console.WriteLine("Мана персонажа: " + mpp);
                 Console.WriteLine("__________________");
                                 break;
@@ -103,6 +106,7 @@ namespace ConsoleApp1
                                 Console.WriteLine("Здоровье Монстров");
                                 Monsterhp -= 2;
                                 Console.WriteLine(Monsterhp);
+                                sumMDmg += 2;
                                 Playerhp += 2;
                 Console.WriteLine("______");
                                 Console.WriteLine("Здоровье персонажа вылечено на: 2" );
@@ -113,6 +117,7 @@ namespace ConsoleApp1
                                 Console.WriteLine("Здоровье игрока");
                                 Playerhp -= toPdmg;
                                 Console.WriteLine(Playerhp);
+                                sumPDmg += toPdmg;
                                 Console.WriteLine("Мана персонажа: " + mpp);
                 Console.WriteLine("__________________");
                                 break;
@@ -125,6 +130,7 @@ namespace ConsoleApp1
                 Console.WriteLine("______");
                                 Console.WriteLine("Здоровье Монстров");
                                 Monsterhp -= 6;
+                                sumMDmg += 6;
                                 Console.WriteLine(Monsterhp);
 
                 Console.WriteLine("______");
@@ -133,6 +139,7 @@ namespace ConsoleApp1
                                 Console.WriteLine("Здоровье игрока");
                                 Playerhp -= toPdmg;
                                 Console.WriteLine(Playerhp);
+                                sumPDmg += toPdmg;
                                 Console.WriteLine("Мана персонажа: " + mpp);
                 Console.WriteLine("__________________");
                                 break;
@@ -145,6 +152,7 @@ namespace ConsoleApp1
                 Console.WriteLine("______");
                                 Console.WriteLine("Здоровье Монстров");
                                 Monsterhp -= 3;
+                                sumMDmg += 3;
                                 Console.WriteLine(Monsterhp);
                                 Console.WriteLine("Здоровье игрока");
                                 Console.WriteLine(Playerhp);
@@ -154,12 +162,13 @@ namespace ConsoleApp1
                             case 5:
                 Console.WriteLine("__________________");
                                 Console.WriteLine("вы выбрали charge of darkness");
-                                mpp -= 1;
-                                Console.WriteLine("вы потратили 1 маны");
-                                Console.WriteLine("вы оглушили врага и нанесли ему 30 ед.урона");
+                                mpp -= 16;
+                                Console.WriteLine("вы потратили 16 маны");
+                                Console.WriteLine("вы оглушили врага и нанесли ему 5 ед.урона");
                 Console.WriteLine("______");
                                 Console.WriteLine("Здоровье Монстров");
-                                Monsterhp -= 30;
+                                Monsterhp -= 5;
+                                sumMDmg += 5;
                                 Console.WriteLine(Monsterhp);
                                 Console.WriteLine("Здоровье игрока");
                                 Console.WriteLine(Playerhp);
@@ -179,6 +188,7 @@ namespace ConsoleApp1
                         Console.WriteLine("______");
                         Console.WriteLine("Монстр вам нанес: " + toPdmg);
                         Playerhp -= toPdmg;
+                        sumPDmg += toPdmg;
                         Console.WriteLine("______");
                         Console.WriteLine("Здоровье персонажа: " + Playerhp);
                         Console.WriteLine("__________________");
