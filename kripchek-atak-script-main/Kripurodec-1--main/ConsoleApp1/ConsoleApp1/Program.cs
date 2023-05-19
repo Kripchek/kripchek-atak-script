@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -32,170 +33,192 @@ namespace ConsoleApp1
                 Console.WriteLine("суммарный урон по монстру");
             float sumMDmg = toMdmg;
             Console.WriteLine(sumMDmg);
-            
             Console.WriteLine("Начало боя");
-            while (Playerhp > 0 && Monsterhp > 0)
+
+            while (true)
             {
-                Console.WriteLine("==================================");
-                Console.WriteLine("новый ход");
-                Console.WriteLine("__________________");
-                Console.WriteLine("ваша мана восстановлена на 3 ед.");
-                mpp += 3;
-                Console.WriteLine("Мана персонажа: " + mpp);
-                Console.WriteLine("__________________");
-                Console.WriteLine("Выберите действие которое хотите использовать:1 - атака, 2 - магия, 3 - лечение");
-                Console.WriteLine("__________________");
-                int modescroll = int.Parse(Console.ReadLine());
-                switch (modescroll)
+                while (Playerhp > 0 && Monsterhp > 0)
                 {
-                    case 1: 
-                Console.WriteLine("__________________");
-                        Console.WriteLine("Вы использовали атаку");
-                Console.WriteLine("__________________");
-                        Console.WriteLine("Вы нанесли монстру: " + toMdmg);
-                Console.WriteLine("__________________");
-                        Console.WriteLine("Здоровье Монстров");
-                        Monsterhp -= toMdmg;
-                        Console.WriteLine(Monsterhp);
-                        sumMDmg += toMdmg;
+                    Console.WriteLine("==================================");
+                    Console.WriteLine("новый ход");
+                    Console.WriteLine("__________________");
+                    Console.WriteLine("ваша мана восстановлена на 3 ед.");
+                    mpp += 3;
+                    Console.WriteLine("Мана персонажа: " + mpp);
+                    Console.WriteLine("__________________");
+                    Console.WriteLine("Выберите действие которое хотите использовать:1 - атака, 2 - магия, 3 - лечение");
+                    Console.WriteLine("__________________");
+                    int modescroll = int.Parse(Console.ReadLine());
+                    switch (modescroll)
+                    {
+                        case 1:
+                            Console.WriteLine("__________________");
+                            Console.WriteLine("Вы использовали атаку");
+                            Console.WriteLine("__________________");
+                            Console.WriteLine("Вы нанесли монстру: " + toMdmg);
+                            Console.WriteLine("__________________");
+                            Console.WriteLine("Здоровье Монстров");
+                            Monsterhp -= toMdmg;
+                            Console.WriteLine(Monsterhp);
 
-                Console.WriteLine("__________________");
-                        Console.WriteLine("Монстр вам нанес: " + toPdmg);
-                Console.WriteLine("__________________");
-                        Console.WriteLine("Здоровье игрока");
-                        Playerhp -= toPdmg;
-                        Console.WriteLine(Playerhp);
-                        sumPDmg += toPdmg;
-                        
-                        break;
-                    case 2:
-                Console.WriteLine("__________________");
-                        Console.WriteLine("Выберите навык который хотие использовать:1 - Fireball; 2 - Shadow Dance; 3 - First Strike;" +
-           " 4 - Reverse Polarity; 5 - Charge of Darkness");
-                        int modeskill = int.Parse(Console.ReadLine());
-                        switch (modeskill)
-                        {
-                            case 1:
-                Console.WriteLine("__________________");
-                                Console.WriteLine("вы выбрали fireball");                    
-                                mpp -= 5;
-                                Console.WriteLine("вы потратили 5 маны");
-                                Console.WriteLine("Вы нанесли монстру: 5 ед. урона") ;
-                Console.WriteLine("______");
-                                Console.WriteLine("Здоровье Монстров");
-                                Monsterhp -= 5;
-                                Console.WriteLine(Monsterhp);
-                                sumMDmg += 5;
-                Console.WriteLine("______");
-                                Console.WriteLine("Монстр вам нанес: " + toPdmg);
-                Console.WriteLine("______");
-                                Console.WriteLine("Здоровье игрока");
-                                Playerhp -= toPdmg;
-                                Console.WriteLine(Playerhp);
-                                sumPDmg += toPdmg;
-                                Console.WriteLine("Мана персонажа: " + mpp);
-                Console.WriteLine("__________________");
-                                break;
-                            case 2: 
-                Console.WriteLine("__________________");
-                                Console.WriteLine("вы выбрали shadow dance");
-                                mpp -= 7;
-                                Console.WriteLine("вы потратили 7 маны");
-                                Console.WriteLine("Вы нанесли монстру: 2 ед. урона");
-                Console.WriteLine("______");
-                                Console.WriteLine("Здоровье Монстров");
-                                Monsterhp -= 2;
-                                Console.WriteLine(Monsterhp);
-                                sumMDmg += 2;
-                                Playerhp += 2;
-                Console.WriteLine("______");
-                                Console.WriteLine("Здоровье персонажа вылечено на: 2" );
-                                Console.WriteLine("Здоровье персонажа: " +Playerhp);
-                Console.WriteLine("______");
-                                Console.WriteLine("Монстр вам нанес: " + toPdmg);
-                Console.WriteLine("______");
-                                Console.WriteLine("Здоровье игрока");
-                                Playerhp -= toPdmg;
-                                Console.WriteLine(Playerhp);
-                                sumPDmg += toPdmg;
-                                Console.WriteLine("Мана персонажа: " + mpp);
-                Console.WriteLine("__________________");
-                                break;
-                            case 3:
-                Console.WriteLine("__________________");
-                                Console.WriteLine("вы выбрали first strike");
-                                mpp -= 8;
-                                Console.WriteLine("вы потратили 8 маны");
-                                Console.WriteLine("Вы нанесли монстру: 6");
-                Console.WriteLine("______");
-                                Console.WriteLine("Здоровье Монстров");
-                                Monsterhp -= 6;
-                                sumMDmg += 6;
-                                Console.WriteLine(Monsterhp);
+                            Console.WriteLine("__________________");
+                            Console.WriteLine("Монстр вам нанес: " + toPdmg);
+                            Console.WriteLine("__________________");
+                            Console.WriteLine("Здоровье игрока");
+                            Playerhp -= toPdmg;
+                            Console.WriteLine(Playerhp);
 
-                Console.WriteLine("______");
-                                Console.WriteLine("Монстр вам нанес: " + toPdmg);
-                Console.WriteLine("______");
-                                Console.WriteLine("Здоровье игрока");
-                                Playerhp -= toPdmg;
-                                Console.WriteLine(Playerhp);
-                                sumPDmg += toPdmg;
-                                Console.WriteLine("Мана персонажа: " + mpp);
-                Console.WriteLine("__________________");
-                                break;
-                            case 4:
-                Console.WriteLine("__________________");
-                                Console.WriteLine("вы выбрали reverse polarity");
-                                mpp -= 13;
-                                Console.WriteLine("вы потратили 13 маны");
-                                Console.WriteLine("вы оглушили врага и нанесли ему 3 ед.урона");
-                Console.WriteLine("______");
-                                Console.WriteLine("Здоровье Монстров");
-                                Monsterhp -= 3;
-                                sumMDmg += 3;
-                                Console.WriteLine(Monsterhp);
-                                Console.WriteLine("Здоровье игрока");
-                                Console.WriteLine(Playerhp);
-                                Console.WriteLine("Мана персонажа: " + mpp);
-                Console.WriteLine("__________________");
-                                break;
-                            case 5:
-                Console.WriteLine("__________________");
-                                Console.WriteLine("вы выбрали charge of darkness");
-                                mpp -= 16;
-                                Console.WriteLine("вы потратили 16 маны");
-                                Console.WriteLine("вы оглушили врага и нанесли ему 5 ед.урона");
-                Console.WriteLine("______");
-                                Console.WriteLine("Здоровье Монстров");
-                                Monsterhp -= 5;
-                                sumMDmg += 5;
-                                Console.WriteLine(Monsterhp);
-                                Console.WriteLine("Здоровье игрока");
-                                Console.WriteLine(Playerhp);
-                                Console.WriteLine("Мана персонажа: " + mpp);
-                Console.WriteLine("__________________");
-                                break;
-                        }
-                        break;
-                    case 3:
-                        Console.WriteLine("__________________");
-                        Console.WriteLine("вы использовали лечение");
-                        Playerhp += tohilP;
-                        Console.WriteLine("______");
-                        Console.WriteLine("Здоровье персонажа вылечено на: " + tohilP);
-                        Console.WriteLine("______");
-                        Console.WriteLine("Здоровье персонажа: " + Playerhp);
-                        Console.WriteLine("______");
-                        Console.WriteLine("Монстр вам нанес: " + toPdmg);
-                        Playerhp -= toPdmg;
-                        sumPDmg += toPdmg;
-                        Console.WriteLine("______");
-                        Console.WriteLine("Здоровье персонажа: " + Playerhp);
-                        Console.WriteLine("__________________");
-                        break;
+
+                            break;
+                        case 2:
+                            Console.WriteLine("__________________");
+                            Console.WriteLine("Выберите навык который хотие использовать:1 - Fireball; 2 - Shadow Dance; 3 - First Strike;" +
+               " 4 - Reverse Polarity; 5 - Charge of Darkness");
+                            int modeskill = int.Parse(Console.ReadLine());
+                            switch (modeskill)
+                            {
+                                case 1:
+                                    Console.WriteLine("__________________");
+                                    Console.WriteLine("вы выбрали fireball");
+                                    mpp -= 5;
+                                    Console.WriteLine("вы потратили 5 маны");
+                                    Console.WriteLine("Вы нанесли монстру: 5 ед. урона");
+                                    Console.WriteLine("______");
+                                    Console.WriteLine("Здоровье Монстров");
+                                    Monsterhp -= 5;
+                                    Console.WriteLine(Monsterhp);
+                                    Console.WriteLine("______");
+                                    Console.WriteLine("Монстр вам нанес: " + toPdmg);
+                                    Console.WriteLine("______");
+                                    Console.WriteLine("Здоровье игрока");
+                                    Playerhp -= toPdmg;
+                                    Console.WriteLine(Playerhp);
+                                    Console.WriteLine("Мана персонажа: " + mpp);
+                                    Console.WriteLine("__________________");
+                                    break;
+                                case 2:
+                                    Console.WriteLine("__________________");
+                                    Console.WriteLine("вы выбрали shadow dance");
+                                    mpp -= 7;
+                                    Console.WriteLine("вы потратили 7 маны");
+                                    Console.WriteLine("Вы нанесли монстру: 2 ед. урона");
+                                    Console.WriteLine("______");
+                                    Console.WriteLine("Здоровье Монстров");
+                                    Monsterhp -= 2;
+                                    Console.WriteLine(Monsterhp);
+                                    Playerhp += 2;
+                                    Console.WriteLine("______");
+                                    Console.WriteLine("Здоровье персонажа вылечено на: 2");
+                                    Console.WriteLine("Здоровье персонажа: " + Playerhp);
+                                    Console.WriteLine("______");
+                                    Console.WriteLine("Монстр вам нанес: " + toPdmg);
+                                    Console.WriteLine("______");
+                                    Console.WriteLine("Здоровье игрока");
+                                    Playerhp -= toPdmg;
+                                    Console.WriteLine(Playerhp);
+                                    Console.WriteLine("Мана персонажа: " + mpp);
+                                    Console.WriteLine("__________________");
+                                    break;
+                                case 3:
+                                    Console.WriteLine("__________________");
+                                    Console.WriteLine("вы выбрали first strike");
+                                    mpp -= 8;
+                                    Console.WriteLine("вы потратили 8 маны");
+                                    Console.WriteLine("Вы нанесли монстру: 6");
+                                    Console.WriteLine("______");
+                                    Console.WriteLine("Здоровье Монстров");
+                                    Monsterhp -= 6;
+                                    Console.WriteLine(Monsterhp);
+
+                                    Console.WriteLine("______");
+                                    Console.WriteLine("Монстр вам нанес: " + toPdmg);
+                                    Console.WriteLine("______");
+                                    Console.WriteLine("Здоровье игрока");
+                                    Playerhp -= toPdmg;
+                                    Console.WriteLine(Playerhp);
+                                    Console.WriteLine("Мана персонажа: " + mpp);
+                                    Console.WriteLine("__________________");
+                                    break;
+                                case 4:
+                                    Console.WriteLine("__________________");
+                                    Console.WriteLine("вы выбрали reverse polarity");
+                                    mpp -= 13;
+                                    Console.WriteLine("вы потратили 13 маны");
+                                    Console.WriteLine("вы оглушили врага и нанесли ему 3 ед.урона");
+                                    Console.WriteLine("______");
+                                    Console.WriteLine("Здоровье Монстров");
+                                    Monsterhp -= 3;
+                                    Console.WriteLine(Monsterhp);
+                                    Console.WriteLine("Здоровье игрока");
+                                    Console.WriteLine(Playerhp);
+                                    Console.WriteLine("Мана персонажа: " + mpp);
+                                    Console.WriteLine("__________________");
+                                    break;
+                                case 5:
+                                    Console.WriteLine("__________________");
+                                    Console.WriteLine("вы выбрали charge of darkness");
+                                    mpp -= 1;
+                                    Console.WriteLine("вы потратили 1 маны");
+                                    Console.WriteLine("вы оглушили врага и нанесли ему 30 ед.урона");
+                                    Console.WriteLine("______");
+                                    Console.WriteLine("Здоровье Монстров");
+                                    Monsterhp -= 30;
+                                    Console.WriteLine(Monsterhp);
+                                    Console.WriteLine("Здоровье игрока");
+                                    Console.WriteLine(Playerhp);
+                                    Console.WriteLine("Мана персонажа: " + mpp);
+                                    Console.WriteLine("__________________");
+                                    break;
+                            }
+                            break;
+                        case 3:
+                            Console.WriteLine("__________________");
+                            Console.WriteLine("вы использовали лечение");
+                            Playerhp += tohilP;
+                            Console.WriteLine("______");
+                            Console.WriteLine("Здоровье персонажа вылечено на: " + tohilP);
+                            Console.WriteLine("______");
+                            Console.WriteLine("Здоровье персонажа: " + Playerhp);
+                            Console.WriteLine("______");
+                            Console.WriteLine("Монстр вам нанес: " + toPdmg);
+                            Playerhp -= toPdmg;
+                            Console.WriteLine("______");
+                            Console.WriteLine("Здоровье персонажа: " + Playerhp);
+                            Console.WriteLine("__________________");
+                            break;
+                    }
+
+                    Console.WriteLine("==================================");
                 }
-           
-                Console.WriteLine("==================================");
+                
+                
+                    Console.WriteLine("вы хотите начать бой заного? (Y/N)");
+                    string userInput = Console.ReadLine();
+
+                    if (userInput.ToLower() == "y")
+                    {
+                        Console.WriteLine("Бой был перезапущен");
+                        continue;
+                    }
+                    else if (userInput.ToLower() == "n")
+                    {
+                        Console.WriteLine("бой окончен");
+                        break;
+                    }
+                    else 
+                    {
+                        Console.WriteLine("Вы ввели некорректное значение");
+                    
+                    }
+               
+            }
+            if (Playerhp < 0) 
+            {
+                Console.WriteLine("Вы проиграли!");
+            }
+            else if(Monsterhp < 0)
+            {
+                Console.WriteLine("Поздравляем! Вы выйграли!");
             }
             Console.WriteLine("Итоги битвы:");
             Console.WriteLine("Здоровье оставшееся у Игрока: " + Playerhp);
